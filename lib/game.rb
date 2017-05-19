@@ -11,21 +11,23 @@ class Game
   end
 
   def play(coordinate1, coordinate2)
-    unless game_over
+    unless @game_over
       @field[coordinate1][coordinate2] = @output_string
+
+      @game_over = Result.new(@field, @output_string).game_over?
 
       change_current_turn
 
       change_output_string
+    else
+      "Your is game over, #{@current_turn} has won"
     end
   end
 
   private
 
   def change_current_turn
-    opponent_player = @opponent
-    @opponent = @current_turn
-    @current_turn = opponent_player
+    @current_turn, @opponent = @opponent, @current_turn
   end
 
   def change_output_string

@@ -65,5 +65,13 @@ describe Game do
     it "changes the game field" do
       expect(game.field[coordinate1][coordinate2]).to eq "X"
     end
+
+    it "plays game and player 1 wins" do
+      game.play(0,1)
+      game.play(1,0)
+      game.play(1,1)
+      game.play(2,0)
+      expect(game.play(2,2)).to eq "Your is game over, #{game.current_turn} has won"
+    end
   end
 end
