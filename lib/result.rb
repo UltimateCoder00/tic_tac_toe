@@ -14,19 +14,7 @@ class Result
   private
 
   def all_fields_filled?
-    # fields_filled = 0
-
     @field.flatten.select { |word| word != "-" }.size == 9 ? true : false
-    #
-    # for coordinate1 in 0..2
-    #   for coordinate2 in 0..2
-    #     if @field[coordinate1][coordinate2] != "-"
-    #       fields_filled += 1
-    #     end
-    #   end
-    # end
-    #
-    # fields_filled == 9 ? true : false
   end
 
   def current_player_won?
